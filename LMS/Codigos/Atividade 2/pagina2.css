@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;  
+}
+
+.navegador{
+    width: 400px;
+    height: 100vh;
+    position: fixed;
+    top:0px;
+    left:0px;
+    background-color: blue;
+}
+
+.navegador > .botao{
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    font: 20px Verdana;
+    color: white; 
+}
+
+.navegador > .botao:hover{
+    background-color: cornflowerblue;
+}
+
+.article1,.article2{
+    margin-left: 400px;
+    border: 5px solid rgb(4, 135, 158);
+    padding:20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    background-color: #ADD8E6;
+}
+
+.article1 > table{
+    margin:auto;
+}

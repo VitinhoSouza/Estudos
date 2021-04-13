@@ -1,0 +1,197 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    position: relative;
+}
+
+/*Imagem (Animação*/
+.imagem{
+    position: absolute;
+    display:flex;
+    height: 100px;
+    width: 100px;
+    animation-name: animacao;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    z-index: 2;
+}
+
+@keyframes animacao{
+    0%{transform: translate(150px,0px);}
+    20%{transform: translate(280px,0px);}
+    40%{transform: translate(280px,150px);}
+    60%{transform: translate(280px,280px);}
+    80%{transform: translate(200px,280px);}
+    100%{transform: translate(0px,280px);}
+}
+
+/*Nav Superior*/
+
+.navegador-superior{
+    display: flex;
+    background-color:blue;
+    justify-content: center;
+    height: 40px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+.navegador-superior > .botao-navegador{
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font: 15px Verdana;
+}
+
+.navegador-superior > .botao-navegador:hover, .dropdown:hover{
+    background-color:rgb(4, 135, 158);
+}
+/*Container*/
+.container{
+    display: flex;
+}
+/*Nav Esquerdo*/
+
+.navegador-esquerdo{
+    width: 350px;
+    height: 800px;
+    background-color: #483D8B;
+    position: relative;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+}
+
+.navegador-esquerdo > .botao{
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    font: 20px Verdana;
+    color: white; 
+}
+
+.navegador-esquerdo > .botao:hover{
+    background-color:rgb(4, 135, 158);
+}
+
+
+/*Célula 1 - Accordion*/
+.conteudo{
+    height: 800px;
+    width: 100%;
+}
+
+.linha{
+    height: 400px;
+    display: flex;
+}
+
+.accordion{
+    height: 400px;
+    width: 50%;
+    background-color:#1E90FF;
+}
+
+.accordion .conjunto .titulo{
+    height: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:20px;
+}
+
+.accordion .conjunto .corpo{
+    height: 240px;
+}
+
+.accordion .conjunto{
+    height: 40px;
+    overflow: hidden;
+    transition: height 2s linear 500ms;
+}
+
+.accordion .conjunto:hover{
+    height: 280px;
+}
+
+/*Célula 2 - Imagem*/
+.overlay{
+    position: relative;
+    display: flex;
+    background-color: white;
+    height: 400px;
+    width: 50%;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.overlay img{
+    height: 100%;
+}
+
+.overlay .overlay-inner{
+    position: absolute;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay .overlay-inner .overlay-text{
+    display: block;
+}
+
+/*Linha 2*/
+.celula{
+    width: 33.333%;
+}
+
+#c3{
+    background-color: #836FFF;
+}
+
+#c4{
+    background-color:#191970;
+}
+
+#c5{
+    background-color: #00008B;
+}
+
+@media screen and (max-width:768px){
+
+    .navegador-superior,.navegador-esquerdo{
+        box-shadow: none;
+    }
+
+    .container,.conteudo,.linha{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #l1{
+        display: flex;
+        height: 800px;
+    }
+
+    #nav2{
+        height: 400px;
+    }
+
+    #nav1,#nav2,#c1,#c2{
+        width: 100%;
+    }
+
+    #c3,#c4,#c5{
+        display: flex;
+        height: 400px;
+        width: 100%;
+    }
+}

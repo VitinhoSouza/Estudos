@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./atividade5.css">
+    <title>Atividade 6</title>
+</head>
+<body>
+
+    <div class="overlay">
+        <div class="modal">
+            <button class="voltar">x</button>
+            <h3>Preencha os campos:</h3>
+            <h4>Nome:</h4><input type = "text" name="nome" class="nome-modal">
+            <h4>Texto:</h4><input type = "text" name="texto" class="texto-modal">
+            <button class="enviar">Postar comentário!</button>
+        </div>
+    </div>
+
+    <nav class="navegador">
+        <div class="cabecalho-navegador">
+            <div class="esq">
+                <h3>Vitinho Dev</h3>
+            </div>
+            <div class="dir">
+                <button id="b1">Postar</button>
+                <button id="b2">&#9776</button>
+            </div>
+        </div>
+
+        <div class="menu-retratil">
+            <a href="https://www.instagram.com/vitinhosouza17/">Instagram</a>
+            <a href="https://github.com/VitinhoSouza">GitHub</a>
+            <a href="https://www.linkedin.com/in/victor-souza-1419b21ab/">Linkedin</a>
+        </div>
+    </nav>
+    
+    <div class="feed">
+        <div class="post" id="destaque">
+            
+            <span class="nome"></span>
+            <span class="texto"></span>
+
+        </div>
+
+        <div class="post">
+            <span class="nome">José</span>
+            <span class="texto">Hoje é domingo, no pé de cachimbo!</span>
+        </div>
+
+        <div class="post">
+            <span class="nome">Antônio</span>
+            <span class="texto">Eu nasci há 10 mil anos atrás!</span>
+        </div>
+
+    </div>
+
+    <script>
+
+        // Menu Retrátil
+        let button_menu = document.querySelector(".navegador .cabecalho-navegador .dir #b2");
+        let menu_retratil = document.querySelector(".navegador .menu-retratil");
+        let feed = document.querySelector(".feed");
+
+        button_menu.addEventListener("click",function(){
+            menu_retratil.classList.toggle("ativo");
+            feed.classList.toggle("ativo")
+        })
+
+        // Post Destaque
+
+        let posts = [
+            {nome:"José", texto:"Hoje é domingo, no pé de cachimbo!"},
+            {nome:"Antônio",texto:"Eu nasci há 10 mil anos atrás!"}
+        ]
+
+        let nome = document.querySelector("#destaque .nome");
+        let texto = document.querySelector("#destaque .texto");
+
+        nome.innerHTML= posts[0].nome;
+        texto.innerHTML= posts[0].texto;
+
+        let cont = 0;
+
+        //Função setTimeout só faz uma vez, por isso uso a setInterval
+        setInterval(function(){
+            cont++;
+            if(cont == posts.length){
+                cont = 0;
+            }
+            nome.innerHTML= posts[cont].nome;
+            texto.innerHTML= posts[cont].texto;
+        }, 2000);
+
+        //Modal
+        let postar = document.querySelector(".navegador .dir #b1");
+        let overlay = document.querySelector(".overlay");
+        let voltar = document.querySelector(".overlay .modal .voltar");
+
+        postar.addEventListener("click",function(){
+            overlay.classList.add("ativo");
+            menu_retratil.classList.remove("ativo");
+            feed.classList.remove("ativo")
+        })
+
+        voltar.addEventListener("click",function(){
+            overlay.classList.remove("ativo");
+        })
+
+        window.addEventListener("click",function(event){
+            if(event.target == overlay){
+                overlay.classList.remove("ativo");
+            }
+        })
+
+        //Pegar informações do modal
+        let nome_modal = document.querySelector(".overlay .modal .nome-modal");
+        let texto_modal = document.querySelector(".overlay .modal .texto-modal");
+        let botao_enviar = document.querySelector(".overlay .modal .enviar");
+        //Já peguei o feed lá em cima
+
+        botao_enviar.addEventListener("click",function(event){
+            event.preventDefault();
+            novo_post = {nome:nome_modal.value, texto:texto_modal.value}
+            posts.push(novo_post);
+            
+            let div_post = document.createElement("div");
+            div_post.classList.add("post");
+            
+            let span_nome = document.createElement("span");
+            span_nome.classList.add("nome");
+            span_nome.innerHTML = novo_post.nome;
+            
+            let span_texto = document.createElement("span");
+            span_texto.classList.add("texto");
+            span_texto.innerHTML = novo_post.texto;
+            
+            div_post.appendChild(span_nome);
+            div_post.appendChild(span_texto);
+            feed.appendChild(div_post);
+
+            nome_modal.value="";
+            texto_modal.value="";
+            overlay.classList.remove("ativo");
+
+        })
+
+
+    </script>
+    
+</body>
+</html>

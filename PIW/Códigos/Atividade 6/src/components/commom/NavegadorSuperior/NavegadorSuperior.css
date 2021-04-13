@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.nav-superior{
+    display: flex;
+    width: 700px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #483D8B;
+}
+
+
+.nav-superior .esq .imagem{
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+}
+
+.nav-superior .dir{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.nav-superior .dir .link{
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    padding: 10px;
+    margin: 2px;
+    background-color: #836FFF;
+    cursor: pointer;
+}
+
+.nav-superior .dir .link:hover{
+    background-color: #6d60be;
+}
+/*
+7868e0
+*/
+
+.nav-superior .dir .link{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.nav-superior .dir .nome{
+    color: white;
+    font-size: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+    width: 100px;
+    height: 30px;
+}
+
+.nav-superior .dir .link.active{
+    background-color: rgb(150, 150, 150);
+}

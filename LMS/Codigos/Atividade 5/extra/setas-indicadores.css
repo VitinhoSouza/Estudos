@@ -1,0 +1,50 @@
+.feed .slideshow .seta{
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    background-color: gray;
+    color: white;
+    padding: 0px 5px;
+    cursor: pointer;
+}
+
+#s1{
+    left: 0;
+}
+
+#s2{
+    right: 0;
+}
+
+.feed .slideshow .indicador{
+    display: flex;
+    width: 140px;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 10px;
+    left:50%;
+    transform: translate(-50%,0);
+}
+
+.feed .slideshow .indicador .indicadores{
+    width: 30px;
+    height: 3px;
+    background-color: gray;
+}
+
+.feed .slideshow .indicador .indicadores.ativo{
+    background-color: white;
+}
+
+<!-- HTML
+            <div class="seta" id="s1">	&lt </div>
+            <div class="seta" id="s2"> &gt </div>
+            
+            <div class="indicador">
+                <div class="indicadores ativo"></div>
+                <div class="indicadores"></div>
+                <div class="indicadores"></div>
+                <div class="indicadores"></div>
+            </div>
+-->

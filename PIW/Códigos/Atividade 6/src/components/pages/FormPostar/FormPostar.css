@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.form-postar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    height: 490px;
+    background-color: silver;
+}
+
+.form-postar .texto-mensagem{
+    margin: 10px;
+    height: 100px;
+    width: 300px;
+    text-align: center;
+}
+
+.form-postar .submit-postar{
+    margin: 10px;
+    height: 40px;
+    width: 60px;
+    text-align: center;
+}

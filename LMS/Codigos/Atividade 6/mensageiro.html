@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./mensageiro.css">
+    <title>Mensageiro</title>
+</head>
+<body>
+
+    <div class="overlay ativo">
+        <div class="modal">
+            <input type="text" placeholder="Digite seu nome">
+            <button class="botao-modal">OK</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <span class="nome-sistema">ALPHA WEB</span>
+            <span class="nome-usuario"></span>
+        </header>
+
+        <div class="content">
+
+            <div class="grupos">
+
+            </div>
+
+            <div class="mensagens">
+
+            </div>
+
+        </div>
+
+        <footer>
+            <form class="form-grupo">
+                <input type="text" placeholder="Crie um novo grupo">
+                <button>Criar</button>
+            </form>
+    
+            <form class="form-mensagem">
+                <input type="text" placeholder="Envie uma nova mensagem">
+                <button>Enviar</button>
+            </form>
+        </footer>
+
+    </div>
+    
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+
+    //Parte do Modal
+    let overlay = document.querySelector('.overlay');
+    //let modal = document.querySelector('.overlay .modal');
+    let input_modal = document.querySelector('.overlay .modal input');
+    let botao_modal = document.querySelector('.overlay .modal .botao-modal');
+    let nome_usuario = document.querySelector('.container .nome-usuario');
+    let id_grupo_atual;
+
+    botao_modal.addEventListener("click",function(event){
+        event.preventDefault();
+        overlay.classList.remove("ativo");
+        nome_usuario.innerHTML = input_modal.value;
+    })
+
+    //GET Grupos
+    let grupos = document.querySelector('.container .content .grupos');
+
+    function formar_grupo(nome,id){
+
+        let div_item_grupo = document.createElement("div");
+        div_item_grupo.classList.add("item-grupo");
+
+        let icone = document.createElement("img");
+        icone.classList.add("icone");
+        icone.setAttribute("src","icone.png")
+
+        let span_nome = document.createElement("span");
+        span_nome.classList.add("nome");
+        span_nome.innerHTML = nome;
+
+        div_item_grupo.appendChild(icone);
+        div_item_grupo.appendChild(span_nome);
+        grupos.appendChild(div_item_grupo);
+
+        div_item_grupo.addEventListener("click",function(event){
+            event.preventDefault();
+            id_grupo_atual = id;
+            atualizar_mensagens(id);
+        })
+    }
+
+    function atualizar_grupos(){
+        grupos.innerHTML = "";
+        axios({
+            method:"GET",
+            url:"https://server-json-lms.herokuapp.com/grupos"
+        }).then((response)=>{
+            let grupos = response.data;
+            for (let grupo of grupos){
+                //console.log(grupo.nome,grupo.id);
+                formar_grupo(grupo.nome,grupo.id);
+            }
+        }).catch((error)=>{
+            console.log(error);
+        })
+    }
+
+    atualizar_grupos();
+
+    //POST Grupos
+    function criar_grupo(nome_grupo){
+        axios({
+            method:"POST",
+            url:"https://server-json-lms.herokuapp.com/grupos",
+            data:{
+                nome:nome_grupo,
+            }
+        }).then((response)=>{
+            atualizar_grupos();
+        }).catch((error)=>{
+            console.log(error);
+        })
+    }
+    
+    let botao_criar_grupo = document.querySelector(".container footer .form-grupo button");
+    let nome_grupo = document.querySelector(".container footer .form-grupo input");
+
+    botao_criar_grupo.addEventListener("click",function(event){
+        event.preventDefault();
+        criar_grupo(nome_grupo.value);
+    })
+
+
+    //GET mensagens
+    let mensagens = document.querySelector('.container .content .mensagens');
+
+    function formar_mensagem(nome,corpo){
+        let div_item_msg = document.createElement("div");
+        div_item_msg.classList.add("item-mensagem");
+
+        let span_nome = document.createElement("span");
+        span_nome.classList.add("nome");
+        span_nome.innerHTML = nome;
+
+        let span_corpo = document.createElement("span");
+        span_corpo.classList.add("corpo");
+        span_corpo.innerHTML = corpo;
+
+        div_item_msg.appendChild(span_nome);
+        div_item_msg.appendChild(span_corpo);
+        mensagens.appendChild(div_item_msg);
+    }
+
+    function atualizar_mensagens(id_grupo){
+        mensagens.innerHTML = "";
+        axios({
+            method:"GET",
+            url:"https://server-json-lms.herokuapp.com/grupos/"+ id_grupo +"/mensagens",
+        }).then((response)=>{
+            let mensagens = response.data;
+            for (let msg of mensagens){
+                formar_mensagem(msg.nome,msg.corpo);
+            }
+        }).catch((error)=>{
+            console.log(error);
+        })
+    }
+
+    //atualizar_mensagens(1);
+
+    // POST mensagens
+    function criar_msg(autor,corpo_msg,id_grupo){
+        axios({
+            method:"POST",
+            url:"https://server-json-lms.herokuapp.com/mensagens",
+            data:{
+                nome:autor,
+                corpo: corpo_msg,
+                grupoId: id_grupo
+            }
+        }).then((response)=>{
+            atualizar_mensagens(id_grupo);
+        }).catch((error)=>{
+            console.log(error);
+        })
+    }
+    
+    
+    let botao_criar_msg = document.querySelector(".container footer .form-mensagem button");
+    let corpo_msg = document.querySelector(".container footer .form-mensagem input");
+
+    botao_criar_msg.addEventListener("click",function(event){
+        event.preventDefault();
+        criar_msg(nome_usuario.innerHTML, corpo_msg.value,id_grupo_atual);
+    })
+
+
+    
+</script>

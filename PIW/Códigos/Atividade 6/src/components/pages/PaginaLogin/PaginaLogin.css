@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.pagina-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pagina-login .div-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5vh;
+}
+
+.pagina-login .div-form input{
+    height: 3vh;
+}
+
+.pagina-login .div-form button{
+    height: 4vh;
+    width: 5vw;
+}

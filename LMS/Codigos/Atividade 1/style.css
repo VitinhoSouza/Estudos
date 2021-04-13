@@ -1,0 +1,30 @@
+.name{
+    text-align: center;
+    color:darkblue;
+}
+
+.cab{
+    text-align: center;
+    background-color:whitesmoke;
+}
+
+.a{
+    margin: 30px;
+    font-size: 20px;
+    color: darkblue;
+}
+
+.article1{
+    background-color: cadetblue;
+    text-align: center;
+}
+
+.article2{
+    background-color: cadetblue;
+    text-align: center;
+}
+
+.article3{
+    background-color: whitesmoke;
+    text-align: center;
+}

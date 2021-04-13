@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.div_post{
+    margin: 10px;
+}
+
+.post{
+    width: 350px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    background-color: #836FFF;
+    border: 1px solid black;
+}
+
+.post .pessoa{
+    height: 30px;
+    padding: 5px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-style: dashed;
+    border-color: black;
+    border-width: 0px 0px 1px;
+}
+
+.post .texto{
+    font-size: 15px;
+    font-family: monospace;
+    height: 58px;
+    padding: 5px;
+    border-style: dashed;
+    border-color: black;
+    border-width: 0px 0px 1px;
+    text-align: center;
+    margin-top: 18px;
+}
+
+.post .linha3{
+    display: flex;
+    height: 30px;
+    padding: 5px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.post .linha3 .likes{
+    font-size: 15px;
+    font-family: monospace;
+}
+
+#id_button{
+    width: 60px;
+    height: 24px;
+}
+
+.comentarios{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    background-color: #8f8aaa;
+    border: 1px solid black;
+}
+
+.comentarios .conteudo{
+    display: flex;
+    flex-direction: column;
+}
+
+.comentarios .conteudo .comentario{
+    display: flex;
+    flex-direction: column;
+    height: 55px;
+}
+
+.comentarios .conteudo .comentario .pessoa{
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5px;
+}
+
+.comentarios .conteudo .comentario .texto{
+    font-size: 13px;
+    font-family: monospace;
+    padding: 5px;
+    border-style: dashed;
+    border-color: black;
+    border-width: 0px 0px 1px 0px;
+    text-align: center;
+}
+
+.comentarios .mensagem{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 40px;
+}
+
+.comentarios .mensagem input{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 200px;
+    height: 20px;
+}

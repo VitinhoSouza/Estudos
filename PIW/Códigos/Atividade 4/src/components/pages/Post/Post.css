@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.post{
+    width: 350px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    background-color: #836FFF;
+}
+
+.post .pessoa{
+    height: 30px;
+    padding: 5px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-style: dashed;
+    border-color: black;
+    border-width: 0px 0px 1px;
+}
+
+.post .div-texto{
+    display: flex;
+    height: 58px;
+    padding: 5px;
+    border-style: dashed;
+    border-color: black;
+    border-width: 0px 0px 1px;
+    justify-content: center;
+    align-items: center;
+}
+
+.post .div-texto .texto{
+    font-size: 15px;
+    font-family: monospace;
+    text-align: center;
+}
+
+.post .linha3{
+    display: flex;
+    height: 30px;
+    padding: 5px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.post .linha3 .likes{
+    font-size: 15px;
+    font-family: monospace;
+}
+
+.post .linha3 > button{
+    width: 60px;
+    height: 20px;
+}

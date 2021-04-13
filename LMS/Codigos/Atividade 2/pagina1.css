@@ -1,0 +1,73 @@
+*{
+  margin:0;
+  padding: 0; 
+}
+
+.dropdown{
+    text-align: center;
+    cursor:pointer;
+
+    /*Propriedades do botao-navegador, pois o meu dropdown simula um botão*/
+    display: block;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+    font: 15px Verdana;
+}
+
+.dropdown .conteudo-dropdown{
+    display: none;
+    position: absolute;
+    left:380px;
+    background-color: rgb(4, 135, 158);
+    width: 300px;
+    font: 14px Verdana;
+}
+
+#b1{ 
+    top:58px;
+    height: 30px;
+}
+
+#b2{
+    top:88px;
+    height: 30px;
+}
+
+#b3{
+    top:118px;
+    height: 30px;
+}
+
+.dropdown:hover .conteudo-dropdown{
+    display: block;
+}
+
+.navegador{
+    display: flex;
+    background-color: blue;
+}
+
+.navegador > .botao-navegador{
+    display: block;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+    font: 15px Verdana;
+}
+
+.navegador > .botao-navegador:hover, .dropdown:hover{
+    background-color:rgb(4, 135, 158);
+}
+
+.article1,.article2{
+    border: 5px solid rgb(4, 135, 158);
+    padding:20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    background-color: #ADD8E6;
+}
+
+.article1 > table{
+    margin:auto;
+}

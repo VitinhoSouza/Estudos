@@ -37,11 +37,19 @@
                 width: 15rem;
             }
 
+            :first-child:hover{
+                background-color: var(--gray-hover);
+            }
+
             :last-child{
                 width: 12rem;
                 color: var(--white);
                 background-color: var(--black);
                 border-color: var(--black);
+            }
+
+            :last-child:hover{
+                background-color: var(--black-hover);
             }
         }
     }
@@ -62,14 +70,10 @@
         text-decoration: none;
         cursor: pointer;
         color:var(--white);
-    }
 
-    .navlink .active{
-        background-color: pink;
-    }
-
-    .navlink.selected{
-        background-color: green;
+        &.active{
+            background-color:var(--red-dark);
+        }
     }
     
     .navlink:hover{

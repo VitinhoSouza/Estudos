@@ -1,0 +1,110 @@
+.overlay{
+
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+
+    .modalEditAndDeleteProduct{
+        margin: 0;
+        padding: 0;
+        background-color: var(--white);
+        width: 45rem;
+        height: 15rem;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        color: var(--black);
+
+        h1{
+            margin: 0;
+            height: 25%;
+            font-size: 1.5rem;
+        }
+
+        form{
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+
+            table{
+                margin: 0;
+                height: 70%;
+                width: 95%;
+    
+                tr{
+                    height: 0.5rem;
+    
+                    .widthId{
+                        min-width: 3rem;
+                        max-width: 4rem;
+                    }
+    
+                    td{
+                        width: 20rem;
+                        background-color: var(--gray);
+                        input{
+                            width: 90%;
+                            height: 2rem;
+                        }
+    
+                    }
+                }
+            }
+
+            div{
+
+                height: 30%;
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+    
+                :first-child,:last-child{
+                    height: 2.5rem;
+                    width: 8rem;
+                    margin-top: 1rem;
+                    font-size: 0.95rem;
+                    cursor: pointer;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                :first-child{
+                    background-color: var(--gray);
+                }
+    
+                :first-child:hover{
+                    background-color: var(--gray-hover);
+                }
+    
+                .buttonDelete{
+                    color: var(--white);
+                    background-color: var(--red-delete);
+                    border-color: var(--red-delete);
+                }
+    
+                .buttonDelete:hover{
+                    background-color: var(--red-hover);
+                    border-color: var(--red-hover);
+                }
+            }
+
+            
+        }
+
+
+    }
+
+}

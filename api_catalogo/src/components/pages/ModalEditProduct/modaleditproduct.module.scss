@@ -1,0 +1,101 @@
+.overlay{
+
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+
+    .modalEditAndDeleteProduct{
+        margin: 0;
+        padding: 0;
+        background-color: var(--white);
+        width: 45rem;
+        height: 15rem;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        color: var(--black);
+
+        h1{
+            margin: 1rem;
+            height: 20%;
+            font-size: 1.5rem;
+        }
+
+        form{
+            margin: 0;
+            height: 80%;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            table{
+                height: 50%;
+                width: 90%;
+                margin-top: 0;
+
+                tr{
+                    height: 0.5rem;
+                    width: 1rem;
+    
+                    .widthId{
+                        min-width: 3rem;
+                        max-width: 4rem;
+                    }
+    
+                    td{
+                        background-color: var(--gray);
+                        input{
+                            height: 2rem;
+                            width: 7rem;
+                        }
+                    }
+                }
+            }
+
+            div{
+
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+        
+                :first-child,:last-child{
+                    margin-top: 1rem;
+                    height: 2.5rem;
+                    width: 8rem;
+                    font-size: 0.95rem;
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+
+                :first-child{
+                    background-color: var(--gray);
+                }
+    
+                :first-child:hover{
+                    background-color: var(--gray-hover);
+                }
+
+                .buttonEdit{
+                    color: var(--white);
+                    background-color: var(--blue);
+                    border-color: var(--blue);
+                }
+    
+                .buttonEdit:hover{
+                    background-color: var(--blue-hover);
+                    border-color: var(--blue-hover);
+                }
+            }
+        }
+    }
+}

@@ -1,13 +1,36 @@
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { login } from "../../../api/auth";
+import { AuthContext } from "../../../App";
 import history from "../../../history"
-import styles from "./login.module.scss"
+import styles from "./pagelogin.module.scss"
 export function PageLogin(){
 
-    function go_register () {
+    const {register, handleSubmit} = useForm();
+    const auth = useContext(AuthContext);
+    console.log(auth.token);
+
+    function goRegister () {
         history.push("/register");
     }
 
-    function go_home(){
-        history.push("/");
+    function goHome(user){
+        let user_correct = {
+            "email":user.email,
+            "password":user.password,
+            "confirmPassword":user.password
+        }
+        console.log(user_correct);
+        login(user_correct)
+        .then((response)=>{
+            console.log(response.data.value.token);
+            //console.log(auth);
+            auth.setAuth({token:response.data.value.token});
+            //console.log(auth);
+            history.push("/");
+        }).catch((error)=>{
+            console.log(error);
+        })
     }
 
     return(
@@ -15,14 +38,14 @@ export function PageLogin(){
             <h1>
                 Sistema de Catálogos de Produtos
             </h1>
-            <form className={styles.form}>
+            <form className={styles.form} onSubmit={handleSubmit(goHome)}>
                 
-                <input type="email" id="mail" placeholder=" Digite seu email"/>
-                <input type="password" id="password" placeholder=" Digite sua senha"/>
-                <button type="submit" onClick={go_home}>ENTRAR</button>
+                <input type="email" {...register('email', { required: true })} placeholder=" Digite seu email"/>
+                <input type="password" {...register('password', { required: true })} placeholder=" Digite sua senha"/>
+                <button type="submit">ENTRAR</button>
                     
             </form>
-            <form className={styles.register} onSubmit={go_register}>
+            <form className={styles.register} onSubmit={goRegister}>
                 <h4>Ainda não tem uma conta?</h4>
                 <button type="submit">CADASTRE-SE</button>
             </form>
